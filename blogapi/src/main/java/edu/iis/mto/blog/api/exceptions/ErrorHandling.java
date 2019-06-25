@@ -32,6 +32,9 @@ public class ErrorHandling {
                 .equals(DomainError.USER_NOT_CONFIRMED) || exc.getMessage()
                 .equals(DomainError.SELF_LIKE)) {
             response.sendError(HttpStatus.FORBIDDEN.value(), exc.getMessage());
+        } else if (exc.getMessage()
+                .equals(DomainError.USER_REMOVED)) {
+            response.sendError(HttpStatus.BAD_REQUEST.value(), exc.getMessage());
         } else {
             response.sendError(HttpStatus.BAD_REQUEST.value(), exc.getMessage());
         }

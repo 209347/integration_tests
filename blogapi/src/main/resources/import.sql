@@ -3,5 +3,10 @@ insert into user (account_status, email, first_name, last_name) values ('CONFIRM
 insert into user (account_status, email, first_name) values ('NEW', 'brian@domain.com', 'Brian')
 insert into user (account_status, email, first_name) values ('REMOVED', 'removed@domain.com', 'Removed')
 insert into user (account_status, email, first_name, last_name) values ('CONFIRMED', 'blogpostowner@domain.com', 'BlogPost', 'Owner')
+insert into user (account_status, email, first_name, last_name) values ('CONFIRMED', 'blogpostowner2@domain.com', 'BlogPost', 'Owner2')
 
 insert into blog_post values (null, 'Post Created by a confirmed user', 4)
+insert into blog_post values (null, 'Post with no likes', 5)
+insert into blog_post values (null, 'Post Created by a confirmed user with id 1', 1)
+insert into blog_post values (null, 'Removed user post', 3)
+insert into blog_post values (null, 'Second Post', 5)
