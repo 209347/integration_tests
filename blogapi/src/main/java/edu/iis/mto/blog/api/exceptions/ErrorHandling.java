@@ -28,7 +28,13 @@ public class ErrorHandling {
     @ExceptionHandler(DomainError.class)
     public void domainError(DomainError exc, HttpServletResponse response) throws IOException {
         LOGGER.error(exc.getMessage());
-        response.sendError(HttpStatus.BAD_REQUEST.value(), exc.getMessage());
+        if (exc.getMessage()
+                .equals(DomainError.USER_NOT_CONFIRMED)) {
+            response.sendError(HttpStatus.FORBIDDEN.value(), exc.getMessage());
+        } else {
+            response.sendError(HttpStatus.BAD_REQUEST.value(), exc.getMessage());
+        }
+
     }
 
     @ExceptionHandler(EntityNotFoundException.class)
